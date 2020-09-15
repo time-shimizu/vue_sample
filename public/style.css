@@ -1,0 +1,7 @@
+.strike-through{
+  text-decoration: line-through;
+  color: lightgray
+}
+.dark{
+  background-color: gray
+}
