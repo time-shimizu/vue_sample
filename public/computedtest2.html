@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Vue.js sample</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <input v-model.number="price" type="number">円 x
+      <input v-model.number="count" type="number">個
+      <p>{{ sum }}円</p>
+      <p>税込み{{ taxIncluded }}円</p>
+    </div>
+
+    <script>
+      new Vue({
+        el:"#app",
+        data: {
+          price: 0,
+          count: 0
+        },
+        computed:{
+          sum: function(){
+            return this.price * this.count;
+          },
+          taxIncluded: function(){
+            return this.sum * 1.08;
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
