@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Vue.js sample</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <input v-model="findWord">
+      <li v-for="item in findItems">{{item}}</li>
+    </div>
+
+    <script>
+      new Vue({
+        el:"#app",
+        data: {
+          findWord:'',
+          items: ['桃太郎','花咲爺さん','浦島太郎','かぐや姫','かちかち山']
+        },
+        computed: {
+          findItems: function(){
+            if (this.findWord){
+              return this.items.filter(function(value){
+                return (value.indexOf(this.findWord)> -1);
+              }, this);
+            } else{
+              return this.items;
+            }
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
