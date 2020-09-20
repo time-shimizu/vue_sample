@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Vue.js sample</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <h2>残りが5秒になったらアラートを出す例</h2>
+    <button onclick="startTimer()">START</button>
+
+    <script>
+      function startTimer(){
+        this.resetSec = 5;
+        this.timerObj = setInterval(()=> {countDown()}, 1000)
+      }
+      function countDown(){
+        this.resetSec --;
+        if (this.resetSec <= 0){
+          alert('制限時間です');
+          clearInterval(this.timerObj);
+        }
+      }
+    </script>
+  </body>
+</html>
